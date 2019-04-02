@@ -4,29 +4,20 @@
     make setup
     source venv/bin/activate
 
+##### Fetching repositories
+    ./fetch_repositories.sh
+    
+##### Fetching data/videos
+    TODO
 
-####
-pip install -r requirements.txt
-
-export GST_PLUGIN_PATH=GST_PLUGIN_PATH:$PWD/gst-plugins-tf/gst
-
-gst-inspect-1.0 gstplugin_py
-gst-inspect-1.0 gst_tf_detection
-gst-inspect-1.0 gst_detection_overlay
-
-rm -rf ~/.cache/gstreamer-1.0/
+### Guide
+1. How to inject python plugin in Gstreamer Pipeline?
+2. How to implement simple blur filter with python plugin in Gstreamer pipeline?
+3. How to implement python plugin with Tensorflow model in Gstreamer pipeline?
+4. How to implement python plugin to draw on image buffer in Gstreamer pipeline?
+5. How to process multiple video sources with Tensorflow Model?
+6. How to launch Gstreamer Pipeline with python plugin with Shared Tensorflow Model? 
+7. How to implement batch forward pass for multiple video streams
 
 
-### example of gst_tf_detection + log
-GST_DEBUG=python:4 gst-launch-1.0 filesrc location=ai-stream/data/videos/MOT17-09.mp4 ! decodebin ! videoconvert !  video/x-raw,format=RGB ! gst_tf_detection config=gst-plugins-tf/gst/configs/cfg.yml ! videoconvert ! gtksink sync=False
 
-### example of gst_tf_detection + draw: gst_detection_overlay
-GST_DEBUG=python:4 gst-launch-1.0 filesrc location=ai-stream/data/videos/MOT17-09.mp4 ! decodebin ! videoconvert !  video/x-raw,format=RGB ! gst_tf_detection config=gst-plugins-tf/gst/configs/cfg.yml ! videoconvert ! gst_detection_overlay ! videoconvert ! gtksink sync=False
-
-### example of gst_tf_detection + draw: gst_detection_overlay + fps
-GST_DEBUG=python:4 gst-launch-1.0 filesrc location=ai-stream/data/videos/MOT17-09.mp4 ! decodebin ! videoconvert !  video/x-raw,format=RGB ! gst_tf_detection config=gst-plugins-tf/gst/configs/cfg.yml ! videoconvert ! gst_detection_overlay ! videoconvert ! fpsdisplaysink video-sink=gtksink sync=False
-
-### example of gst_tf_detection + draw: gst_detection_overlay -> to video file
-GST_DEBUG=python:4 gst-launch-1.0 filesrc location=ai-stream/data/videos/MOT17-09.mp4 ! decodebin ! videoconvert !  video/x-raw,format=RGB ! gst_tf_detection config=gst-plugins-tf/gst/configs/cfg.yml ! videoconvert ! gst_detection_overlay !  videoconvert ! x264enc tune=zerolatency ! mp4mux ! filesink location=out.mp4 -e
-
-### example of multiple gst_tf_detection + draw: gst_detection_overlay
