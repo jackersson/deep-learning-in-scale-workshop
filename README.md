@@ -1,11 +1,16 @@
 ### deep-learning-in-scale-workshop
 
 #### Installation
-source venv/bin/activate
+    make setup
+    source venv/bin/activate
+
+
+####
 pip install -r requirements.txt
 
 export GST_PLUGIN_PATH=GST_PLUGIN_PATH:$PWD/gst-plugins-tf/gst
 
+gst-inspect-1.0 gstplugin_py
 gst-inspect-1.0 gst_tf_detection
 gst-inspect-1.0 gst_detection_overlay
 
