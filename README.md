@@ -1,4 +1,16 @@
 ### deep-learning-in-scale-workshop
+#### Goal
+- Discover approach to inject Computer Vision algorithm in Video Streaming pipeline. 
+
+#### Real-world application
+- Safe city program in Vinnytsia, Ukraine
+
+#### Requirements
+- Gstreamer (>=1.14)
+- Tensorflow (>=1.10)
+- OpenCV (>= 3.4)
+- Ubuntu (18.04)
+- Python (>=3.5)
 
 #### Installation
     make setup
