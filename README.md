@@ -1,32 +1,58 @@
 ### deep-learning-in-scale-workshop
+#### Goal
+- Discover approach to inject Computer Vision algorithm in Video Streaming pipeline. 
+
+#### Real-world application
+- Safe city program in Vinnytsia, Ukraine
+
+#### Requirements
+- Gstreamer (>=1.14)
+- Tensorflow (>=1.10)
+- OpenCV (>= 3.4)
+- Ubuntu (18.04)
+- Python (>=3.5)
 
 #### Installation
     make setup
     source venv/bin/activate
 
+##### Fetching repositories
+    ./fetch_repositories.sh
+    
+##### Fetching data/videos
+    TODO
 
-####
-pip install -r requirements.txt
+### Guide
+#### How to inject python plugin in Gstreamer Pipeline?       
+- [code](https://github.com/jackersson/gst-python-plugins)
 
-export GST_PLUGIN_PATH=GST_PLUGIN_PATH:$PWD/gst-plugins-tf/gst
+      ./workshop/gst_python_plugin_template.sh
+      
+#### How to implement simple blur filter with python plugin in Gstreamer pipeline?
+- [code](https://github.com/jackersson/gst-python-plugins)
 
-gst-inspect-1.0 gstplugin_py
-gst-inspect-1.0 gst_tf_detection
-gst-inspect-1.0 gst_detection_overlay
+      ./workshop/gst_python_blur_plugin.sh
+     
+#### How to implement python plugin with Tensorflow model in Gstreamer pipeline?
+- [code](https://github.com/jackersson/gst-plugins-tf)
 
-rm -rf ~/.cache/gstreamer-1.0/
+      ./workshop/gst_tf_detection_to_console.sh
+      
+#### How to implement python plugin to draw on image buffer in Gstreamer pipeline?
+- [code](https://github.com/jackersson/gst-plugins-tf)
+
+      ./workshop/gst_tf_detection_overlay.sh
+      
+#### How to process multiple video sources with Tensorflow Model?
+- [code](https://github.com/jackersson/gst-video-surveillance)
+
+      ./workshop/gst_tf_detection_multi.sh
+      
+#### How to launch Gstreamer Pipeline with python plugin with Shared Tensorflow Model? 
+- [code](https://github.com/jackersson/gst-video-surveillance)
+
+#### How to implement batch forward pass for multiple video streams
+- [code](https://github.com/jackersson/gst-video-surveillance)
 
 
-### example of gst_tf_detection + log
-GST_DEBUG=python:4 gst-launch-1.0 filesrc location=ai-stream/data/videos/MOT17-09.mp4 ! decodebin ! videoconvert !  video/x-raw,format=RGB ! gst_tf_detection config=gst-plugins-tf/gst/configs/cfg.yml ! videoconvert ! gtksink sync=False
 
-### example of gst_tf_detection + draw: gst_detection_overlay
-GST_DEBUG=python:4 gst-launch-1.0 filesrc location=ai-stream/data/videos/MOT17-09.mp4 ! decodebin ! videoconvert !  video/x-raw,format=RGB ! gst_tf_detection config=gst-plugins-tf/gst/configs/cfg.yml ! videoconvert ! gst_detection_overlay ! videoconvert ! gtksink sync=False
-
-### example of gst_tf_detection + draw: gst_detection_overlay + fps
-GST_DEBUG=python:4 gst-launch-1.0 filesrc location=ai-stream/data/videos/MOT17-09.mp4 ! decodebin ! videoconvert !  video/x-raw,format=RGB ! gst_tf_detection config=gst-plugins-tf/gst/configs/cfg.yml ! videoconvert ! gst_detection_overlay ! videoconvert ! fpsdisplaysink video-sink=gtksink sync=False
-
-### example of gst_tf_detection + draw: gst_detection_overlay -> to video file
-GST_DEBUG=python:4 gst-launch-1.0 filesrc location=ai-stream/data/videos/MOT17-09.mp4 ! decodebin ! videoconvert !  video/x-raw,format=RGB ! gst_tf_detection config=gst-plugins-tf/gst/configs/cfg.yml ! videoconvert ! gst_detection_overlay !  videoconvert ! x264enc tune=zerolatency ! mp4mux ! filesink location=out.mp4 -e
-
-### example of multiple gst_tf_detection + draw: gst_detection_overlay
