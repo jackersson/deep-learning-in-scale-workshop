@@ -51,8 +51,12 @@
 #### How to launch Gstreamer Pipeline with python plugin with Shared Tensorflow Model? 
 - [code](https://github.com/jackersson/gst-video-surveillance)
 
+      ./workshop/gst_video_surv.sh
+
 #### How to implement batch forward pass for multiple video streams
 - [code](https://github.com/jackersson/gst-video-surveillance)
+
+      ./workshop/gst_video_surv_batch.sh
 
 
 
