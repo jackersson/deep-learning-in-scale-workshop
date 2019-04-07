@@ -13,6 +13,7 @@
 - Python (>=3.5)
 
 #### Installation
+    git clone https://github.com/jackersson/deep-learning-in-scale-workshop.git
     make setup
     source venv/bin/activate
 
