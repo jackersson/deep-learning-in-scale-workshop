@@ -9,4 +9,5 @@ setup: venv
 	@bash -c "source venv/bin/activate"
 	@bash -c "./fetch_repositories.sh"
 	@bash -c "./load_data.sh"
+	@bash -c "pip install -r requirements.txt"
 
