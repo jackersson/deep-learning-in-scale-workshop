@@ -1,6 +1,6 @@
 ### deep-learning-in-scale-workshop
 #### Goal
-- Discover approach to inject Computer Vision algorithm in Video Streaming pipeline. 
+- Discover approach to inject Computer Vision algorithms in Video Streaming pipeline. 
 
 #### Real-world application
 - Safe city program in Vinnytsia, Ukraine
@@ -15,12 +15,6 @@
 #### Installation
     make setup
     source venv/bin/activate
-
-##### Fetching repositories
-    ./fetch_repositories.sh
-    
-##### Fetching data/videos
-    TODO
 
 ### Guide
 #### How to inject python plugin in Gstreamer Pipeline?       
