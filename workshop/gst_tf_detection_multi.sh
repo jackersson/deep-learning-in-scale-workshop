@@ -11,7 +11,7 @@ TF_MODEL_CONFIG="gst-plugins-tf/data/tf_object_api_cfg.yml"
 W=320
 H=240
 
-gst-launch-1.0 videomixer name=mixer ! videoconvert ! gtksink \
+gst-launch-1.0 videomixer name=mixer ! videoconvert ! autovideosink sync=False \
     filesrc location=$FILENAME_1 ! decodebin ! videoconvert  ! video/x-raw,format=RGB ! gst_tf_detection config=$TF_MODEL_CONFIG ! videoconvert ! gst_detection_overlay !  \
     videoscale ! video/x-raw,width=$W,height=$H ! videoconvert ! videobox top=-$H left=-$W  ! mixer. \
     filesrc location=$FILENAME_2 ! decodebin ! videoconvert  ! video/x-raw,format=RGB ! gst_tf_detection config=$TF_MODEL_CONFIG ! videoconvert ! gst_detection_overlay ! \
