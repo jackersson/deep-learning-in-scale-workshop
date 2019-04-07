@@ -16,12 +16,6 @@
     make setup
     source venv/bin/activate
 
-##### Fetching repositories
-    ./fetch_repositories.sh
-    
-##### Fetching data/videos
-    TODO
-
 ### Guide
 #### How to inject python plugin in Gstreamer Pipeline?       
 - [code](https://github.com/jackersson/gst-python-plugins)
