@@ -1,5 +1,5 @@
 rm -rf ~/.cache/gstreamer-1.0/
-export GST_PLUGIN_PATH=gst-plugins-tf/gst
+export GST_PLUGIN_PATH=$GST_PYTHON_PATH:gst-plugins-tf/gst
 # export CUDA_VISIBLE_DEVICES=""
 
 FILENAME="data/videos/Pyrohova_Street.mp4"

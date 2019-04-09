@@ -1,5 +1,5 @@
 rm -rf ~/.cache/gstreamer-1.0/
-export GST_PLUGIN_PATH=gst-plugins-tf/gst
+export GST_PLUGIN_PATH=$GST_PYTHON_PATH:gst-plugins-tf/gst
 
 FILENAME_1="data/videos/Pyrohova_Street.mp4"
 FILENAME_2="data/videos/Soborna_Street.mp4"

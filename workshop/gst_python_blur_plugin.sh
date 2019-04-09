@@ -1,5 +1,5 @@
 rm -rf ~/.cache/gstreamer-1.0/
-export GST_PLUGIN_PATH=gst-python-plugins
+export GST_PLUGIN_PATH=$GST_PYTHON_PATH:gst-python-plugins
 
 FILENAME="data/videos/trailer.mp4"
 
