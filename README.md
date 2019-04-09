@@ -13,6 +13,20 @@
 - Python (>=3.5)
 
 #### Installation
+#### Docker 
+    docker pull jackersson/ubuntu-gstreamer
+        
+    # Enable UI support in Docker Container 
+    xhost +local:
+    
+    sudo docker run --name workshop -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix/:/tmp/.X11-unix jackersson/ubuntu-gstreamer
+    
+    sudo docker exec -e DISPLAY=$DISPLAY -it workshop /bin/bash
+    
+    cd /home/workshop/deep-learning-in-scale-workshop
+    source venv/bin/activate 
+
+#####
     git clone https://github.com/jackersson/deep-learning-in-scale-workshop.git
     make setup
     source venv/bin/activate
