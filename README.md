@@ -26,7 +26,7 @@
     cd /home/workshop/deep-learning-in-scale-workshop
     source venv/bin/activate 
 
-#####
+##### Git
     git clone https://github.com/jackersson/deep-learning-in-scale-workshop.git
     make setup
     source venv/bin/activate
