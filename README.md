@@ -25,7 +25,7 @@
     
     cd /home/workshop/deep-learning-in-scale-workshop
     source venv/bin/activate 
-    export GST_PLUGIN_PATH=$GST_PLUGIN_PATH:../gst-python/plugin/
+    export GST_PYTHON_PATH=../gst-python/plugin/
 
 ##### Git
     git clone https://github.com/jackersson/deep-learning-in-scale-workshop.git
