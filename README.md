@@ -29,7 +29,8 @@
 
 ##### Git
     git clone https://github.com/jackersson/deep-learning-in-scale-workshop.git
-    make setup
+    cd deep-learning-in-scale-workshop
+    make install
     source venv/bin/activate
 
 ### Guide
