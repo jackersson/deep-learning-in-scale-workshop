@@ -30,3 +30,6 @@
     git clone https://github.com/jackersson/deep-learning-in-scale-workshop.git
     cd deep-learning-in-scale-workshop
     make install
+    
+    source venv/bin/activate
+    ln -s /usr/lib/python3/dist-packages/gi  venv/lib/python3.6/site-packages
